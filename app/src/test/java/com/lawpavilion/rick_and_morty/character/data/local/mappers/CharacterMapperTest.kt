@@ -13,7 +13,7 @@ import kotlin.time.Instant
 class CharacterMapperTest {
 
     @Test
-    fun toCharacterMapsCharacterEntityToCharacterCorrectly() {
+    fun toCharacterMapsCharacterEntityToCharacter() {
         val entity = createDummyEntity(
             status = CharacterStatus.ALIVE.name,
             gender = Gender.MALE.name
@@ -55,7 +55,7 @@ class CharacterMapperTest {
     }
 
     @Test
-    fun toEntityMapsCharacterToCharacterEntityCorrectly() {
+    fun toEntityMapsCharacterToCharacterEntity() {
         val character = Character(
             id = 1,
             name = "Rick Sanchez",
@@ -125,7 +125,7 @@ class CharacterMapperTest {
     }
 
     @Test
-    fun getStatusMapsEntityStatusToCharacterStatusCorrectly() {
+    fun getStatusMapsEntityStatusToCharacterStatus() {
         CharacterStatus.entries.forEach { status ->
             val entity = createDummyEntity(
                 status = status.name,
@@ -139,7 +139,7 @@ class CharacterMapperTest {
     }
 
     @Test
-    fun getGenderMapsEntityGenderToGenderCorrectly() {
+    fun getGenderMapsEntityGenderToGender() {
         Gender.entries.forEach { gender ->
             val entity = createDummyEntity(
                 status = CharacterStatus.ALIVE.name,

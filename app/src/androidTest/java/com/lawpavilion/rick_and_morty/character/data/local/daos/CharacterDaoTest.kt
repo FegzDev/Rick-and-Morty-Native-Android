@@ -58,7 +58,7 @@ class CharacterDaoTest {
     }
 
     @Test
-    fun upsetCharactersInsertsCharactersCorrectly() = runTest {
+    fun upsetCharactersInsertsCharacters() = runTest {
         val characters = (1..5).map(::createDummyEntity)
 
         val insertedIds = dao.upsertCharacters(characters)
@@ -71,7 +71,7 @@ class CharacterDaoTest {
     }
 
     @Test
-    fun upsetCharactersUpdatesCharactersCorrectly() = runTest {
+    fun upsetCharactersUpdatesCharacters() = runTest {
         val characters = (1..5).map(::createDummyEntity)
 
         dao.upsertCharacters(characters)
@@ -85,7 +85,7 @@ class CharacterDaoTest {
     }
 
     @Test
-    fun upsetCharacterInsertsCharacterCorrectly() = runTest {
+    fun upsetCharacterInsertsCharacter() = runTest {
         val character = createDummyEntity(1)
         val insertedId = dao.upsertCharacter(character)
 
@@ -93,7 +93,7 @@ class CharacterDaoTest {
     }
 
     @Test
-    fun upsetCharacterUpdatesCharacterCorrectly() = runTest {
+    fun upsetCharacterUpdatesCharacter() = runTest {
         val character = createDummyEntity(1)
 
         dao.upsertCharacter(character)
@@ -128,7 +128,7 @@ class CharacterDaoTest {
     }
 
     @Test
-    fun getExistentCharacterReturnsCorrectly() = runTest {
+    fun getExistentCharacterReturns() = runTest {
         val character = createDummyEntity(1)
 
         dao.upsertCharacter(character)

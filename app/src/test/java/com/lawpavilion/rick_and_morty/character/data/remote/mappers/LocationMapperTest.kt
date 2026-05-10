@@ -6,7 +6,7 @@ import org.junit.Test
 
 class LocationMapperTest {
     @Test
-    fun toLocationMapsLocationResponseToLocationCorrectly() {
+    fun toLocationMapsLocationResponseToLocation() {
         val response = LocationResponse(
             name = "Law Pavilion HQ",
             url = "https://www.lawpavilion.com/"

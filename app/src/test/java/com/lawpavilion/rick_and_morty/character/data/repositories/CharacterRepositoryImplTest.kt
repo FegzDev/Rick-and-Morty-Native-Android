@@ -71,7 +71,7 @@ class CharacterRepositoryImplTest {
     }
 
     @Test
-    fun getPageWithParamsSkipsLocalCacheQueryAndQueriesRemoteCorrectly() = runTest {
+    fun getPageWithParamsSkipsLocalCacheQueryAndQueriesRemote() = runTest {
         val remoteResponse = CharacterPageResponse(
             info = CharacterPageInfoResponse(count = 1, pages = 1, next = null, prev = null),
             results = listOf(createDummyResponse(1))
@@ -102,7 +102,7 @@ class CharacterRepositoryImplTest {
     }
 
     @Test
-    fun getPageWithNoParamsQueriesLocalCacheFirstCorrectly() = runTest {
+    fun getPageWithNoParamsQueriesLocalCacheFirst() = runTest {
         val expiresAt = Clock.System.now().toEpochMilliseconds() + 100000L
         val localCharacters = listOf(createDummyEntity(1, expiresAt))
 
@@ -127,7 +127,7 @@ class CharacterRepositoryImplTest {
     }
 
     @Test
-    fun getPageIgnoresLocalCacheIfExpiredCorrectly() = runTest {
+    fun getPageIgnoresLocalCacheIfExpired() = runTest {
         val expiresAt = Clock.System.now().toEpochMilliseconds() - 100000L
         val localCharacters = listOf(createDummyEntity(1, expiresAt))
 
@@ -178,7 +178,7 @@ class CharacterRepositoryImplTest {
     }
 
     @Test
-    fun getCharacterQueriesLocalCacheFirstCorrectly() = runTest {
+    fun getCharacterQueriesLocalCacheFirst() = runTest {
         val expiresAt = Clock.System.now().toEpochMilliseconds() + 100000L
         val localCharacter = createDummyEntity(1, expiresAt)
 
@@ -191,7 +191,7 @@ class CharacterRepositoryImplTest {
     }
 
     @Test
-    fun getCharacterIgnoresLocalCacheIfExpiredCorrectly() = runTest {
+    fun getCharacterIgnoresLocalCacheIfExpired() = runTest {
         val expiresAt = Clock.System.now().toEpochMilliseconds() - 100000L
         val localCharacter = createDummyEntity(1, expiresAt)
 

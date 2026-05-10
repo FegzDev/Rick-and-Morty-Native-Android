@@ -10,7 +10,7 @@ import org.junit.Test
 class CharacterPageMapperTest {
 
     @Test
-    fun toPageMapsCharacterPageResponseToCharacterPageCorrectly() {
+    fun toPageMapsCharacterPageResponseToCharacterPage() {
         val infoResponse = RemoteCharacterTestDefaults.createDummyCharacterPageInfoResponse(
             count = 100,
             pages = 5,

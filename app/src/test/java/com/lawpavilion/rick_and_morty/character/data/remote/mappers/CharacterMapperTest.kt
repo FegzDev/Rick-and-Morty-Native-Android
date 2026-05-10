@@ -8,7 +8,7 @@ import org.junit.Test
 class CharacterMapperTest {
 
     @Test
-    fun toCharacterMapsCharacterResponseToCharacterCorrectly() {
+    fun toCharacterMapsCharacterResponseToCharacter() {
         val response = RemoteCharacterTestDefaults.createDummyCharacterResponse(
             status = CharacterStatus.ALIVE.name,
             gender = Gender.MALE.name
@@ -23,7 +23,7 @@ class CharacterMapperTest {
     }
 
     @Test
-    fun getStatusMapsStatusResponseToCharacterStatusCorrectly() {
+    fun getStatusMapsStatusResponseToCharacterStatus() {
         CharacterStatus.entries.forEach { status ->
             val response = RemoteCharacterTestDefaults.createDummyCharacterResponse(
                 status = status.name,
@@ -37,7 +37,7 @@ class CharacterMapperTest {
     }
 
     @Test
-    fun getGenderMapsGenderResponseToGenderCorrectly() {
+    fun getGenderMapsGenderResponseToGender() {
         Gender.entries.forEach { gender ->
             val response = RemoteCharacterTestDefaults.createDummyCharacterResponse(
                 status = CharacterStatus.ALIVE.name,

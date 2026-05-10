@@ -7,7 +7,7 @@ import org.junit.Test
 class CharacterPageInfoMapperTest {
 
     @Test
-    fun toInfoMapsNullUrlsCorrectly() {
+    fun toInfoMapsNullUrls() {
         val response = RemoteCharacterTestDefaults.createDummyCharacterPageInfoResponse(
             count = 100,
             pages = 5,
@@ -22,7 +22,7 @@ class CharacterPageInfoMapperTest {
     }
 
     @Test
-    fun toInfoMapsNonNullUrlsCorrectly() {
+    fun toInfoMapsNonNullUrls() {
         val response = RemoteCharacterTestDefaults.createDummyCharacterPageInfoResponse(
             count = 100,
             pages = 5,

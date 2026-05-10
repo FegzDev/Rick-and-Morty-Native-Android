@@ -22,7 +22,7 @@ class RoomCharacterDataSourceTest {
     }
 
     @Test
-    fun getCharactersDelegatesToDaoCorrectly() = runTest {
+    fun getCharactersDelegatesToDao() = runTest {
         val mockCharacters = listOf<CharacterEntity>(mockk(), mockk())
         coEvery { dao.getCharacters(0, 20) } returns mockCharacters
 
@@ -33,7 +33,7 @@ class RoomCharacterDataSourceTest {
     }
 
     @Test
-    fun getCharacterDelegatesToDaoCorrectly() = runTest {
+    fun getCharacterDelegatesToDao() = runTest {
         val mockCharacter = mockk<CharacterEntity>()
         coEvery { dao.getCharacter(1) } returns mockCharacter
 
@@ -44,7 +44,7 @@ class RoomCharacterDataSourceTest {
     }
 
     @Test
-    fun upsertCharactersDelegatesToDaoCorrectly() = runTest {
+    fun upsertCharactersDelegatesToDao() = runTest {
         val mockCharacters = listOf<CharacterEntity>(mockk(), mockk())
         dataSource.upsertCharacters(mockCharacters)
 
@@ -52,7 +52,7 @@ class RoomCharacterDataSourceTest {
     }
 
     @Test
-    fun upsertCharacterDelegatesToDaoCorrectly() = runTest {
+    fun upsertCharacterDelegatesToDao() = runTest {
         val mockCharacter = mockk<CharacterEntity>()
         dataSource.upsertCharacter(mockCharacter)
         

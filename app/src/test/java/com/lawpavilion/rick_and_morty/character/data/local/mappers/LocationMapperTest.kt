@@ -7,7 +7,7 @@ import org.junit.Test
 
 class LocationMapperTest {
     @Test
-    fun toLocationMapsLocationReferenceToLocationCorrectly() {
+    fun toLocationMapsLocationReferenceToLocation() {
         val reference = LocationReference("Earth", "url")
         val location = reference.toLocation()
 
@@ -16,7 +16,7 @@ class LocationMapperTest {
     }
 
     @Test
-    fun toReferenceMapsLocationToLocationReferenceCorrectly() {
+    fun toReferenceMapsLocationToLocationReference() {
         val location = Location("Earth", "url")
         val reference = location.toReference()
 
