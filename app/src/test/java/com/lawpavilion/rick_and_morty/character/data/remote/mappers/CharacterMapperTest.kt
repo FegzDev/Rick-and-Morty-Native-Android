@@ -9,7 +9,7 @@ class CharacterMapperTest {
 
     @Test
     fun toCharacterMapsCharacterResponseToCharacterCorrectly() {
-        val response = RemoteCharacterTestDefaults.createCharacterResponse(
+        val response = RemoteCharacterTestDefaults.createDummyCharacterResponse(
             status = CharacterStatus.ALIVE.name,
             gender = Gender.MALE.name
         )
@@ -25,7 +25,7 @@ class CharacterMapperTest {
     @Test
     fun getStatusMapsStatusResponseToCharacterStatusCorrectly() {
         CharacterStatus.entries.forEach { status ->
-            val response = RemoteCharacterTestDefaults.createCharacterResponse(
+            val response = RemoteCharacterTestDefaults.createDummyCharacterResponse(
                 status = status.name,
                 gender = Gender.MALE.name
             )
@@ -39,7 +39,7 @@ class CharacterMapperTest {
     @Test
     fun getGenderMapsGenderResponseToGenderCorrectly() {
         Gender.entries.forEach { gender ->
-            val response = RemoteCharacterTestDefaults.createCharacterResponse(
+            val response = RemoteCharacterTestDefaults.createDummyCharacterResponse(
                 status = CharacterStatus.ALIVE.name,
                 gender = gender.name
             )

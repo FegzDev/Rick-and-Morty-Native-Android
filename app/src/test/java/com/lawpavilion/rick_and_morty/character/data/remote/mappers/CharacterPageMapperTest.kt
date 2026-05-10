@@ -11,7 +11,7 @@ class CharacterPageMapperTest {
 
     @Test
     fun toPageMapsCharacterPageResponseToCharacterPageCorrectly() {
-        val infoResponse = RemoteCharacterTestDefaults.createCharacterPageInfoResponse(
+        val infoResponse = RemoteCharacterTestDefaults.createDummyCharacterPageInfoResponse(
             count = 100,
             pages = 5,
             next = "https://rickandmortyapi.com/api/character?page=2",
@@ -21,11 +21,11 @@ class CharacterPageMapperTest {
         val response = CharacterPageResponse(
             info = infoResponse,
             results = listOf(
-                RemoteCharacterTestDefaults.createCharacterResponse(
+                RemoteCharacterTestDefaults.createDummyCharacterResponse(
                     status = CharacterStatus.ALIVE.name,
                     gender = Gender.MALE.name
                 ),
-                RemoteCharacterTestDefaults.createCharacterResponse(
+                RemoteCharacterTestDefaults.createDummyCharacterResponse(
                     status = CharacterStatus.DEAD.name,
                     gender = Gender.GENDERLESS.name
                 )

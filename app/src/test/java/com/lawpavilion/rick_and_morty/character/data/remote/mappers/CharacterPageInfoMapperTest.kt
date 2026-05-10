@@ -8,7 +8,7 @@ class CharacterPageInfoMapperTest {
 
     @Test
     fun toInfoMapsNullUrlsCorrectly() {
-        val response = RemoteCharacterTestDefaults.createCharacterPageInfoResponse(
+        val response = RemoteCharacterTestDefaults.createDummyCharacterPageInfoResponse(
             count = 100,
             pages = 5,
             next = null,
@@ -23,7 +23,7 @@ class CharacterPageInfoMapperTest {
 
     @Test
     fun toInfoMapsNonNullUrlsCorrectly() {
-        val response = RemoteCharacterTestDefaults.createCharacterPageInfoResponse(
+        val response = RemoteCharacterTestDefaults.createDummyCharacterPageInfoResponse(
             count = 100,
             pages = 5,
             next = "https://rickandmortyapi.com/api/character?page=3",

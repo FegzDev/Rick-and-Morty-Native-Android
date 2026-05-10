@@ -5,7 +5,7 @@ import com.lawpavilion.rick_and_morty.character.data.remote.responses.CharacterR
 import com.lawpavilion.rick_and_morty.character.data.remote.responses.LocationResponse
 
 object RemoteCharacterTestDefaults {
-    fun createCharacterPageInfoResponse(
+    fun createDummyCharacterPageInfoResponse(
         count: Int,
         pages: Int,
         next: String?,
@@ -14,7 +14,7 @@ object RemoteCharacterTestDefaults {
         return CharacterPageInfoResponse(count = count, pages = pages, next = next, prev = prev)
     }
 
-    fun createCharacterResponse(status: String, gender: String): CharacterResponse {
+    fun createDummyCharacterResponse(status: String, gender: String): CharacterResponse {
         return CharacterResponse(
             id = 1,
             name = "Rick Sanchez",
