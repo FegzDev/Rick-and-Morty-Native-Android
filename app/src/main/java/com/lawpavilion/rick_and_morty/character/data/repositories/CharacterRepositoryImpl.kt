@@ -5,7 +5,7 @@ import com.lawpavilion.rick_and_morty.character.data.local.mappers.toCharacter
 import com.lawpavilion.rick_and_morty.character.data.local.mappers.toEntity
 import com.lawpavilion.rick_and_morty.character.data.remote.data_sources.RemoteCharacterDataSource
 import com.lawpavilion.rick_and_morty.character.data.remote.mappers.toCharacter
-import com.lawpavilion.rick_and_morty.character.data.remote.mappers.toDomainResult
+import com.lawpavilion.rick_and_morty.core.data.remote.mappers.toDomainResult
 import com.lawpavilion.rick_and_morty.character.data.remote.mappers.toPage
 import com.lawpavilion.rick_and_morty.character.domain.models.Character
 import com.lawpavilion.rick_and_morty.character.domain.models.CharacterPage

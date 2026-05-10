@@ -1,4 +1,4 @@
-package com.lawpavilion.rick_and_morty.character.data.remote.mappers
+package com.lawpavilion.rick_and_morty.core.data.remote.mappers
 
 import com.lawpavilion.rick_and_morty.core.data.remote.error_handling.RemoteResult
 import com.lawpavilion.rick_and_morty.core.domain.error_handling.DomainResult
