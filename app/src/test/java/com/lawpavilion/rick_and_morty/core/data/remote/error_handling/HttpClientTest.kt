@@ -24,6 +24,13 @@ import org.junit.Test
 private data class TestResponse(val name: String)
 
 class HttpClientTest {
+    private val testUrl = "test_url"
+    
+    private val jsonApplicationHeader = headersOf(
+        name = HttpHeaders.ContentType,
+        value = "application/json"
+    )
+    
     @Test
     fun safeGetReturnsSuccessResultOnSuccess() = runTest {
         val response = """
@@ -36,13 +43,13 @@ class HttpClientTest {
             respond(
                 content = response,
                 status = HttpStatusCode.OK,
-                headers = headersOf(HttpHeaders.ContentType, "application/json")
+                headers = jsonApplicationHeader
             )
         }
 
         val client = createClient(engine)
 
-        val result = client.safeGet<TestResponse>("test_url")
+        val result = client.safeGet<TestResponse>(testUrl)
 
         assertTrue(result is Result.Success)
 
@@ -57,13 +64,13 @@ class HttpClientTest {
             respond(
                 content = "",
                 status = HttpStatusCode.NotModified,
-                headers = headersOf(HttpHeaders.ContentType, "application/json")
+                headers = jsonApplicationHeader
             )
         }
 
         val client = createClient(engine)
 
-        val result = client.safeGet<TestResponse>("test_url")
+        val result = client.safeGet<TestResponse>(testUrl)
 
         assertTrue(result is Result.Failure)
 
@@ -78,13 +85,13 @@ class HttpClientTest {
             respond(
                 content = "",
                 status = HttpStatusCode.InternalServerError,
-                headers = headersOf(HttpHeaders.ContentType, "application/json")
+                headers = jsonApplicationHeader
             )
         }
 
         val client = createClient(engine)
 
-        val result = client.safeGet<TestResponse>("test_url")
+        val result = client.safeGet<TestResponse>(testUrl)
 
         assertTrue(result is Result.Failure)
 
@@ -105,13 +112,13 @@ class HttpClientTest {
             respond(
                 content = response,
                 status = HttpStatusCode.BadRequest,
-                headers = headersOf(HttpHeaders.ContentType, "application/json")
+                headers = jsonApplicationHeader
             )
         }
 
         val client = createClient(engine)
 
-        val result = client.safeGet<TestResponse>("test_url")
+        val result = client.safeGet<TestResponse>(testUrl)
 
         assertTrue(result is Result.Failure)
 
@@ -136,7 +143,7 @@ class HttpClientTest {
 
         val thrownException = assertThrows(CancellationException::class.java) {
             runBlocking {
-                client.safeGet<TestResponse>("test_url")
+                client.safeGet<TestResponse>(testUrl)
             }
         }
 
@@ -153,7 +160,7 @@ class HttpClientTest {
 
         val client = createClient(engine)
 
-        val result = client.safeGet<TestResponse>("test_url")
+        val result = client.safeGet<TestResponse>(testUrl)
 
         assertTrue(result is Result.Failure)
 
@@ -168,13 +175,13 @@ class HttpClientTest {
             respond(
                 content = "",
                 status = HttpStatusCode.OK,
-                headers = headersOf(HttpHeaders.ContentType, "application/json")
+                headers = jsonApplicationHeader
             )
         }
 
         val client = createClient(engine)
 
-        val result = client.safeGet<TestResponse>("test_url")
+        val result = client.safeGet<TestResponse>(testUrl)
 
         assertTrue(result is Result.Failure)
 
@@ -193,7 +200,7 @@ class HttpClientTest {
 
         val client = createClient(engine)
 
-        val result = client.safeGet<TestResponse>("test_url")
+        val result = client.safeGet<TestResponse>(testUrl)
 
         assertTrue(result is Result.Failure)
 
