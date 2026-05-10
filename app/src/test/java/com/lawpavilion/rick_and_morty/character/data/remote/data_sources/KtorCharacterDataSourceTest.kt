@@ -17,7 +17,7 @@ import org.junit.Test
 class KtorCharacterDataSourceTest {
 
     @Test
-    fun `getPage success returns CharacterPageResponse`() = runTest {
+    fun getPageReturnsCharacterPageResponseOnSuccess() = runTest {
         val jsonResponse = """
             {
               "info": {
@@ -77,7 +77,7 @@ class KtorCharacterDataSourceTest {
     }
 
     @Test
-    fun `getCharacter success returns CharacterResponse`() = runTest {
+    fun getCharacterReturnsCharacterResponseOnSuccess() = runTest {
         val jsonResponse = """
             {
               "id": 1,
