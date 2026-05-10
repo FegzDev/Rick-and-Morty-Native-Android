@@ -14,8 +14,8 @@ interface CharacterDao {
     suspend fun getCharacter(id: Int): CharacterEntity?
 
     @Upsert
-    suspend fun upsertCharacters(characters: List<CharacterEntity>)
+    suspend fun upsertCharacters(characters: List<CharacterEntity>): List<Long>
 
     @Upsert
-    suspend fun upsertCharacter(character: CharacterEntity)
+    suspend fun upsertCharacter(character: CharacterEntity): Long
 }
