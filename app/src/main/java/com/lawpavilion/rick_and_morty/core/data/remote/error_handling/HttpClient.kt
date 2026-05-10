@@ -10,6 +10,7 @@ import io.ktor.client.request.get
 import io.ktor.client.utils.CacheControl
 import io.ktor.http.cacheControl
 import io.ktor.http.isSuccess
+import io.ktor.serialization.ContentConvertException
 import kotlinx.coroutines.CancellationException
 import kotlinx.io.IOException
 import kotlinx.serialization.SerializationException
@@ -55,7 +56,10 @@ suspend inline fun <reified D> HttpClient.safeGet(
         when (exception) {
             is CancellationException -> throw exception
             is IOException -> Result.Failure(RemoteError.Network)
-            is SerializationException -> Result.Failure(RemoteError.Serialization)
+            is SerializationException, is ContentConvertException -> {
+                Result.Failure(RemoteError.Serialization)
+            }
+
             else -> Result.Failure(RemoteError.Unknown)
         }
     }
