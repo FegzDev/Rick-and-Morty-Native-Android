@@ -1,0 +1,46 @@
+package com.lawpavilion.rick_and_morty.character.data.remote.mappers
+
+import com.lawpavilion.rick_and_morty.character.data.remote.responses.CharacterPageResponse
+import com.lawpavilion.rick_and_morty.character.domain.models.CharacterStatus
+import com.lawpavilion.rick_and_morty.character.domain.models.Gender
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
+import org.junit.Test
+
+class CharacterPageMapperTest {
+
+    @Test
+    fun toPageMapsCharacterPageResponseToCharacterPageCorrectly() {
+        val infoResponse = RemoteCharacterTestDefaults.createCharacterPageInfoResponse(
+            count = 100,
+            pages = 5,
+            next = "https://rickandmortyapi.com/api/character?page=2",
+            prev = null
+        )
+
+        val response = CharacterPageResponse(
+            info = infoResponse,
+            results = listOf(
+                RemoteCharacterTestDefaults.createCharacterResponse(
+                    status = CharacterStatus.ALIVE.name,
+                    gender = Gender.MALE.name
+                ),
+                RemoteCharacterTestDefaults.createCharacterResponse(
+                    status = CharacterStatus.DEAD.name,
+                    gender = Gender.GENDERLESS.name
+                )
+            )
+        )
+
+        val page = response.toPage()
+
+        assertEquals(page.info.next, 2)
+        assertNull(page.info.previous)
+
+        assertEquals(page.characters.size, response.results.size)
+
+        page.characters.forEachIndexed { index, character ->
+            SharedCharacterTests.compareCharacter(character, response.results[index])
+        }
+    }
+}
