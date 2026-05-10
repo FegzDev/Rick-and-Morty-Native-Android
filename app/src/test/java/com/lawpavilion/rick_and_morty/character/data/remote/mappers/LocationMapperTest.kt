@@ -14,7 +14,7 @@ class LocationMapperTest {
 
         val location = response.toLocation()
 
-        assertEquals(location.name, response.name)
-        assertEquals(location.url, response.url)
+        assertEquals(response.name, location.name)
+        assertEquals(response.url, location.url)
     }
 }

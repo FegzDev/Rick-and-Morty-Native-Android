@@ -34,10 +34,10 @@ class CharacterPageMapperTest {
 
         val page = response.toPage()
 
-        assertEquals(page.info.next, 2)
+        assertEquals(2, page.info.next)
         assertNull(page.info.previous)
 
-        assertEquals(page.characters.size, response.results.size)
+        assertEquals(response.results.size, page.characters.size)
 
         page.characters.forEachIndexed { index, character ->
             SharedCharacterTests.compareCharacter(character, response.results[index])

@@ -32,7 +32,7 @@ class CharacterPageInfoMapperTest {
 
         val info = response.toInfo()
 
-        assertEquals(info.next, 3)
-        assertEquals(info.previous, 1)
+        assertEquals(3, info.next)
+        assertEquals(1, info.previous)
     }
 }

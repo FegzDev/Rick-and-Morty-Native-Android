@@ -6,36 +6,36 @@ import org.junit.Assert.assertEquals
 
 object SharedCharacterTests {
     fun compareCharacter(character: Character, response: CharacterResponse) {
-        assertEquals(character.id, response.id)
-        assertEquals(character.name, response.name)
+        assertEquals(response.id, character.id)
+        assertEquals(response.name, character.name)
 
         assertEquals(
-            character.status.name.lowercase(),
-            response.status.lowercase()
+            response.status.lowercase(),
+            character.status.name.lowercase()
         )
 
-        assertEquals(character.species, response.species)
-        assertEquals(character.type, response.type)
+        assertEquals(response.species, character.species)
+        assertEquals(response.type, character.type)
 
         assertEquals(
-            character.gender.name.lowercase(),
-            response.gender.lowercase()
+            response.gender.lowercase(),
+            character.gender.name.lowercase()
         )
 
-        assertEquals(character.origin.name, response.origin.name)
-        assertEquals(character.origin.url, response.origin.url)
+        assertEquals(response.origin.name, character.origin.name)
+        assertEquals(response.origin.url, character.origin.url)
 
-        assertEquals(character.location.name, response.location.name)
-        assertEquals(character.location.url, response.location.url)
+        assertEquals(response.location.name, character.location.name)
+        assertEquals(response.location.url, character.location.url)
 
-        assertEquals(character.episodeUrls.size, response.episode.size)
+        assertEquals(response.episode.size, character.episodeUrls.size)
 
-        character.episodeUrls.forEachIndexed { index, url ->
-            assertEquals(url, response.episode[index])
+        response.episode.forEachIndexed { index, url ->
+            assertEquals(url, character.episodeUrls[index])
         }
 
-        assertEquals(character.imageUrl, response.image)
-        assertEquals(character.url, response.url)
-        assertEquals(character.createdAt.toString(), response.created)
+        assertEquals(response.image, character.imageUrl)
+        assertEquals(response.url, character.url)
+        assertEquals(response.created, character.createdAt.toString())
     }
 }

@@ -32,7 +32,7 @@ class CharacterMapperTest {
 
             val character = response.toCharacter()
 
-            assertEquals(character.status, status)
+            assertEquals(status, character.status)
         }
     }
 
@@ -46,7 +46,7 @@ class CharacterMapperTest {
 
             val character = response.toCharacter()
 
-            assertEquals(character.gender, gender)
+            assertEquals(gender, character.gender)
         }
     }
 }
